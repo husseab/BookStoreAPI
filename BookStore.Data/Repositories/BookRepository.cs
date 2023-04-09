@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Data.Repositories
 {
-    internal class BookRepository : IBookRepository
+    public class BookRepository : IBookRepository
     {
         public List<Book> books = new List<Book>() {
 new Book { Id = 1, Title = "The Girl on the Train", Author = "Hawkins, Paula", PublicationYear = 2015, CallNumber = "F HAWKI"},

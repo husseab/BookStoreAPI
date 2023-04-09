@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Data.Interfaces
 {
-    internal interface IBookRepository
+    public interface IBookRepository
     {
         List<Book> GetAllBooks();
         Book GetBook(int id);
