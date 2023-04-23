@@ -11,5 +11,12 @@ namespace BookStore.Data.Interfaces
     {
         List<Book> GetAllBooks();
         Book GetBook(int id);
+
+        bool AddNewBook(Book book);
+
+        bool Remove(int id);
+
+        List<Book> UpdateBook(int id, Book book);
+
     }
 }

@@ -42,6 +42,26 @@ namespace BookStoreAPI.Controllers
             return book;
         }
 
+        [HttpPost]
 
+        public ActionResult<Book> AddNewBook(Book book)
+        {
+            if (books.AddNewBook(book))
+            {
+                return book;
+            }
+            return BadRequest();
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<IEnumerable<Book>> UpdateBook(int id, Book book)
+        {
+            var ubook = books.UpdateBook(id, book);
+            if (ubook != null)
+            {
+                return ubook;
+            }
+            return NotFound();
+        }
     }
 }

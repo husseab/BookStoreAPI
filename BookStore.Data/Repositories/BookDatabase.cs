@@ -16,6 +16,14 @@ namespace BookStore.Data.Repositories
         {
             this.db = db;
         }
+
+        public bool AddNewBook(Book book)
+        {
+            db.Books.Add(book);
+            db.SaveChanges();
+            return true;
+        }
+
         public List<Book> GetAllBooks()
         {
            return db.Books.ToList();
@@ -24,6 +32,31 @@ namespace BookStore.Data.Repositories
         public Book GetBook(int id)
         {
             return db.Books.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool Remove(int id)
+        {
+            var book = GetBook(id);
+            if(book == null)
+            {
+                return false;
+            }
+            db.Books.Remove(book);
+            db.SaveChanges();
+            return true;
+
+        }
+
+        public List<Book> UpdateBook(int id, Book book)
+        {
+            if (this.Remove(id))
+            {
+                this.AddNewBook(book);
+                db.SaveChanges();
+                return db.Books.ToList();
+            }
+            return db.Books.ToList();
+
         }
     }
 }

@@ -21,6 +21,12 @@ new Book { Id = 7, Title = "Me Before You", Author = "Moyes, Jojo", PublicationY
 new Book { Id = 8, Title = "Alexander Hamilton", Author = "Chernow, Ron", PublicationYear = 2004, CallNumber = "B HAMILTO A"},
 new Book { Id = 9, Title = "Before the Fall", Author = "Hawley, Noah", PublicationYear = 2016, CallNumber = "F HAWLE"}
 };
+
+        public bool AddNewBook(Book book)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Book> GetAllBooks()
         {
             return books;
@@ -29,6 +35,16 @@ new Book { Id = 9, Title = "Before the Fall", Author = "Hawley, Noah", Publicati
         public Book GetBook(int id)
         {
             return books.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Book> UpdateBook(int id, Book book)
+        {
+            throw new NotImplementedException();
         }
     }
 }
