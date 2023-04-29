@@ -49,11 +49,28 @@ namespace BookStore.Data.Repositories
 
         public List<Book> UpdateBook(int id, Book book)
         {
-            if (this.Remove(id))
+            var _book = db.Books.FirstOrDefault(x => x.Id == id);
+
+            if(_book != null)
             {
-                this.AddNewBook(book);
-                db.SaveChanges();
-                return db.Books.ToList();
+                _book.Title = book.Title ?? _book.Title;
+                _book.Author = book.Author ?? _book.Author;
+                if(book.PublicationYear != null)
+                {
+                    _book.PublicationYear = book.PublicationYear;
+                } else
+                {
+                _book.PublicationYear = _book.PublicationYear;
+                };
+                if(book.IsAvailable)
+                {
+                    _book.IsAvailable = book.IsAvailable;
+                } else
+                {
+                _book.IsAvailable = _book.IsAvailable;
+                }
+                _book.CallNumber = book.CallNumber ?? _book.CallNumber;
+
             }
             return db.Books.ToList();
 
